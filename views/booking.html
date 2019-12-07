@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Club Booking</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <link rel="stylesheet" href="./booking.css">
+
+</head>
+
+<body onload='fullName.focus()'>
+
+
+    <div class="container" class="form-horizontal" role="form">
+
+        <form action="/booking" method="POST">
+
+            <h3 style="text-align: center; color: #b34700;">The JBC Booking Form</h3>
+            <h5 style="text-align: center;">Parents's Details</h5>
+            <div class="form-group">
+                <label for="FullName" class="col-sm-3 control-label">Full Name:</label>
+                <div class="col-sm-12">
+                    <input type="text" id="fullName" name="fullName"laceholder="Full Names" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+                <div class="col-sm-12">
+                    <input type="phoneNumber" id="phoneNumber" name="phoneNumber" placeholder="mobile number" class="form-control">
+                    <span class="help-block" style="text-align: center;"> <small> <i> Your phone number won't be
+                                disclosed anywhere </i> </small>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email Address:</label>
+                <div class="col-sm-12">
+                    <input type="email" id="email" name="email" placeholder="eg; example@gmail.com" class="form-control"
+                        name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-3 control-label">Home Address:</label>
+                <div class="col-sm-12">
+                    <input type="address" id="address" name="address" placeholder="Residence" class="form-control" name="address">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="occupation" class="col-sm-3 control-label">Occupation:</label>
+                <div class="col-sm-12">
+                    <input type="occupation" id="occupation" name="occupation" placeholder="day-time job" class="form-control"
+                        name="occupation">
+                </div>
+            </div>
+
+
+            <h5 style="text-align: center;"> <strong> Child's Details </strong></h5>
+
+            <div class="form-group">
+                <label for="FullName" class="col-sm-3 control-label">Full Name:</label>
+                <div class="col-sm-12">
+                    <input type="text" id="childFullName" placeholder="Both Names" class="form-control" autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age" class="col-sm-3 control-label">Age:</label>
+                <div class="col-sm-12">
+                    <input type="age" id="age" name="age" placeholder="age" name="childFullName" class="form-control" name="age">
+                </div>
+            </div>
+
+            <div class="form-group" id="gender">
+                <label class="control-label col-sm-3">Gender</label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="femaleRadio"  value="Female">Female
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="maleRadio" value="Male">Male
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group" id="club">
+                <label for="club"><strong>Specify the club</strong> (You can choose more than one)</label>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="morning" name="morning" value="morning">8-10AM (Morning)
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="midmorning" value="midmorning">10-12PM (Midmorning)
+                            </label>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="lunch" value="lunch">12-2PM (Lunch)
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="afternoon" value="afternoon">2-4PM (Afternoon)
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="evening" value="evening">4-6PM (Evening)
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="afternoon" value="afternoon">6PM-8AM (Night)
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div> <br>
+
+            <div class="form-group">
+                <label class="control-label col-sm-12" for="comment"><strong> Specify any condition of your child that
+                        needs spaecial attention.</strong></label>
+                <div class="col-sm-12">
+                    <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                    <label for="more"> <small><strong>Disclaimer:</strong><i> Please note that JBC is not liable for any
+                                special condition which you
+                                abstain from disclosing to us.</i></small></label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                        <label class="form-check-label" for="invalidCheck2">
+                            <small>By clicking Submit, you agree to our Terms & Conditions.</small>
+                        </label>
+                    </div>
+                </div>
+
+            </div> <br>
+            <input type="submit" value="Submit" class="btn btn-primary" style="width: 25%; margin-left: 200px;"
+                onclick="bookingVal()">
+            <!-- <button type="submit" class="btn btn-primary" style="width: 25%; margin-left: 200px;"
+                onclick="regValidation()">Submit</button> -->
+        </form>
+
+        <script src="js/bookingVal.js"></script>
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+        <!-- <script src="//code.jquery.com/jquery-2.1.3.min.js"></script> -->
+</body>
+
+</html>

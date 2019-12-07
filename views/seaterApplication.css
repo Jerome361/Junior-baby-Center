@@ -1,0 +1,14 @@
+body{
+    background-color: #ccc !important;
+}
+.details{
+    background-color: #fff;
+}
+#submitbtn{
+ font-weight: bold;
+}
+#submitbtn:hover{
+    color: #981b27;
+    background-color: #fff;
+    border: 2px solid #981b27 !important;
+}

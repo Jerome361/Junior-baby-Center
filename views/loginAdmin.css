@@ -1,0 +1,47 @@
+/* body{
+    background-image: url('./images/playBall.jpg');
+    z-index: +2;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} */
+.card{
+    width: 30%;
+    height: 45%;
+    box-shadow: blue;
+    margin: 35%;
+    margin-top: 5%;
+    -webkit-box-shadow: 2px 2px 29px 0px rgba(204,102,0,1);
+    -moz-box-shadow: 2px 2px 29px 0px rgba(204,102,0,1);
+    box-shadow: 2px 2px 29px 0px rgba(204,102,0,1);
+}
+.login-form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.login-form h1 {
+    text-align: center;
+    color: #4d4d4d;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+}
+.login-form input[type="password"],
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    margin-bottom: 15px;
+    box-sizing:border-box;
+}
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #535b63;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+

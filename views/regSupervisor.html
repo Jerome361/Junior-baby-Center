@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Supervisor Registration</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <link rel="stylesheet" href="./regSupervisor.css">
+
+</head>
+
+<body onload="fullName.focus()">
+
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                <h3>JBC Remainder.</h3>
+                <p>Hello. You are about to create a supervisor. Please Ensure that you
+                    have reviewed this person and that they are ready to hold high the mantle
+                    of JBC in the capacity of a Supervisor.
+                </p>
+                <p><i>JBC cherishes your service.</i></p>
+
+            </div>
+            <div class="col-md-9 register-right">
+
+                <div class="tab-content" id="myTabContent">
+                    <form action="/regSuperv" method="POST">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Create Supervisor</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <input type="text" id="fullName" name="fullName" class="form-control"
+                                            placeholder="Full Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="ninNumber" name="ninNumber" class="form-control"
+                                            placeholder="NIN number *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="eidNumber" name="eidNumber" class="form-control"
+                                            placeholder="EID number *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" class="form-control"
+                                            placeholder="Email address *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="phoneNumber" name="phoneNumber" minlength="10"
+                                            maxlength="10" name="txtEmpPhone" class="form-control"
+                                            placeholder="Phone number*" value="" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline">
+                                                <input type="radio" id="male" name="gender" value="male" checked>
+                                                <span> Male </span>
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" id="female" name="gender" value="female">
+                                                <span>Female </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="address" name="address" class="form-control"
+                                            placeholder="Resident Address *" value="" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" id="keenName" name="keenName" class="form-control"
+                                            placeholder="Next of keen: Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="keenAddress" name="keenAddress" class="form-control"
+                                            placeholder="Next of keen: Address *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="keenPhone" name="keenPhone" class="form-control"
+                                            placeholder="Next of keen: Phone *" value="" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" id="createPassword" name="createPassword"
+                                            class="form-control" placeholder="Create Password *" value="" />
+                                    </div>
+                                    <input type="submit" class="btnRegister" value="Register"
+                                        onclick="regValidation()" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/regValidation.js"></script>
+</body>
+
+</html>
