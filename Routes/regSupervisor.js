@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt =require('bcryptjs')
 const SupervisorLog = require("../models/supervisorLog");
 const router = express.Router();
 

@@ -1,31 +1,52 @@
-const express = require('express');
-const bookings = require('../models/bookingModel');
-
+const express = require("express");
+const RegisterCustomer = require("../models/registerCustomerModel")
+const BookingLog = require("../models/bookingModel");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('booking.html')
+const customerIsRegistered = async (customerNumber) => {
+  if (customerNumber) {
+    const phone = [];
+    await RegisterCustomer.findOne({ phoneNumber: customerNumber }, (error, response) => {
+      if (response !== null) {
+        phone.push(response);
+      }
+    });
+    console.log(phone)
+    if (phone.length) {
+      return true;
+    } else {
+      return false;
+    }
+
+  } else {
+    throw new Error('The customer phone number is missing')
+  }
+}
+
+
+//Route for submitting information form the registration form
+router.post("/", async (req, res) => {
+  const myData = new BookingLog(req.body);
+  console.log(myData.phoneNumber, "fghyfrerthgedrt");
+  const found = await customerIsRegistered(myData.phoneNumber);
+  console.log(found, 'found value')
+  if (found) {
+    myData
+      .save()
+      .then(item => {
+        BookingLog.find().then(items => {
+          // console.log("Data Saved to Database Successfully");
+          res.render("supervisor.html", { bookingLogs: items });
+        });
+      })
+      .catch(err => {
+        //   console.log(err);
+        res.status(400).send("unable to save to database");
+      });
+  } else {
+    res.render("registerCustomer.html")
+  }
+
 });
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-    //Creates an instance of the register model/docs for the data entered
-    const regBookings = new BookingLog(req.body);
-    regBookings.save()
-        //promises
-        //Querry the collection and pass the to a new form called list
-        .then(
-            BookingLog.find().then(
-                item => {
-                    res.render('index.html', { users: item });
-                }
-            )
-
-        )
-        .catch(err => {
-            res.status(500).send('Unable to save to the database')
-        })
-
-})
-
-module.exports = router 
+module.exports = router;

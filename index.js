@@ -55,6 +55,14 @@ app.use('/regSuperv', supLogsRoute);
 //Supervisor login
 const logSupvRoute = require('./Routes/logSupvRoute')
 app.use('/authSupervisor', logSupvRoute)
+//Register customer
+const regCustomer = require("./Routes/registerCustomerRoute")
+app.use('/registerCustomer', regCustomer)
+//Make appointments
+const booking = require('./Routes/bookingRoute')
+app.use('/bookingClub', booking)
+
+
 
 
 const postsRoute = require('./Routes/posts');

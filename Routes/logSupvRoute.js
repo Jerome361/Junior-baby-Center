@@ -12,7 +12,9 @@ const authenticate = async (userEmail, userPassword) => {
   if (userEmail) {
     const theUser = [];
     await SupervisorLog.findOne({ email: userEmail }, (error, response) => {
-      theUser.push(response);
+      if(response !== null){
+        theUser.push(response);
+      }     
     });
     if (theUser.length) {
       console.log(userPassword, theUser[0].createPassword);

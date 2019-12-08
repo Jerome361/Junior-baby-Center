@@ -15,66 +15,40 @@
 
 </head>
 
-<body onload='fullName.focus()'>
+<body onload='phoneNumber.focus()'>
 
 
     <div class="container" class="form-horizontal" role="form">
 
-        <form action="/booking" method="POST">
+        
 
-            <h3 style="text-align: center; color: #b34700;">The JBC Booking Form</h3>
-            <h5 style="text-align: center;">Parents's Details</h5>
-            <div class="form-group">
-                <label for="FullName" class="col-sm-3 control-label">Full Name:</label>
-                <div class="col-sm-12">
-                    <input type="text" id="fullName" name="fullName"laceholder="Full Names" class="form-control">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
-                <div class="col-sm-12">
-                    <input type="phoneNumber" id="phoneNumber" name="phoneNumber" placeholder="mobile number" class="form-control">
-                    <span class="help-block" style="text-align: center;"> <small> <i> Your phone number won't be
-                                disclosed anywhere </i> </small>
-                    </span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="col-sm-3 control-label">Email Address:</label>
-                <div class="col-sm-12">
-                    <input type="email" id="email" name="email" placeholder="eg; example@gmail.com" class="form-control"
-                        name="email">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="address" class="col-sm-3 control-label">Home Address:</label>
-                <div class="col-sm-12">
-                    <input type="address" id="address" name="address" placeholder="Residence" class="form-control" name="address">
-                </div>
-            </div>
+        <h3 style="text-align: center; color: #b34700;">The JBC Booking Form</h3>
 
-            <div class="form-group">
-                <label for="occupation" class="col-sm-3 control-label">Occupation:</label>
-                <div class="col-sm-12">
-                    <input type="occupation" id="occupation" name="occupation" placeholder="day-time job" class="form-control"
-                        name="occupation">
-                </div>
-            </div>
-
-
+        <form action="/bookingClub" method="POST">
             <h5 style="text-align: center;"> <strong> Child's Details </strong></h5>
+         
+            <div class="form-group">
+                    <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+                    <div class="col-sm-12">
+                        <input type="phoneNumber" id="phoneNumber" name="phoneNumber" placeholder="mobile number"
+                            class="form-control">
+                        <span class="help-block" style="text-align: center;"> 
+                        </span>
+                    </div>
+                </div>
 
             <div class="form-group">
                 <label for="FullName" class="col-sm-3 control-label">Full Name:</label>
                 <div class="col-sm-12">
-                    <input type="text" id="childFullName" placeholder="Both Names" class="form-control" autofocus>
+                    <input type="text" id="childFullName" name="childFullName" placeholder="Both Names" class="form-control" autofocus>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="age" class="col-sm-3 control-label">Age:</label>
                 <div class="col-sm-12">
-                    <input type="age" id="age" name="age" placeholder="age" name="childFullName" class="form-control" name="age">
+                    <input type="age" id="age" name="age" placeholder="age" name="childFullName" class="form-control"
+                        name="age">
                 </div>
             </div>
 
@@ -84,12 +58,12 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="femaleRadio"  value="Female">Female
+                                <input type="radio" id="femaleRadio" name="female" value="Female">Female
                             </label>
                         </div>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="maleRadio" value="Male">Male
+                                <input type="radio" id="maleRadio" name="male" value="Male">Male
                             </label>
                         </div>
                     </div>
@@ -103,33 +77,35 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="morning" name="morning" value="morning">8-10AM (Morning)
+                                <input type="checkbox" id="morning" name="morning" value="morning">8-10AM (Morning)
                             </label>
                         </div>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="midmorning" value="midmorning">10-12PM (Midmorning)
+                                <input type="checkbox" id="midmorning" name="midmorning" value="midmorning">10-12PM
+                                (Midmorning)
                             </label>
                         </div>
 
                         <div class="col-sm-4">
-                            <label class="radio-inline">
-                                <input type="radio" id="lunch" value="lunch">12-2PM (Lunch)
+
+                            <input type="checkbox" id="lunch" name="lunch" value="lunch">12-2PM (Lunch)
                             </label>
                         </div>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="afternoon" value="afternoon">2-4PM (Afternoon)
+                                <input type="checkbox" id="afternoon" name="afternoon" value="afternoon">2-4PM
+                                (Afternoon)
                             </label>
                         </div>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="evening" value="evening">4-6PM (Evening)
+                                <input type="checkbox" id="evening" name="evening" value="evening">4-6PM (Evening)
                             </label>
                         </div>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="afternoon" value="afternoon">6PM-8AM (Night)
+                                <input type="checkbox" id="night" name="night" value="night">6PM-8AM (Night)
                             </label>
                         </div>
 

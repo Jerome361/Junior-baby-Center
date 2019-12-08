@@ -50,8 +50,11 @@ function logout() {
   window.location = "index.html"; //redirecting to other page
 }
 
-function makeAppointments() {
-  window.location.href = "booking.html";
+function registerCustomer() {
+  window.location.href = "registerCustomer.html";
+}
+function bookClub() {
+  window.location.href = "bookClub.html";
 }
 function contactUs() {
   window.location.href = "contact.html";
@@ -60,7 +63,7 @@ function becomeSeater() {
   window.location.href = "seaterApplication.html";
 }
 function bookClub() {
-  window.location.href = "booking.html"
+  window.location.href = "bookClub.html"
 }
 function adminLogin() {
   window.location.href = "loginAdmin.html"

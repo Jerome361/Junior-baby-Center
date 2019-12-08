@@ -3,35 +3,32 @@ const mongoose = require('mongoose')
 const bookingSchema = new mongoose.Schema({
     fullName:{
         type: String,
-        required: "please enter your first name"
+    
     },
+    // parentid:{
+    //     type: String,
+    
+   
+    // },
     phoneNumber:{
-        type: Number,
-        required: "please enter your first name"
-    },
-    email:{
         type: String,
-        required: "please enter your first name"
-    },
-    address:{
-        type: String,
-        required: "please enter your first name"
-    },
-    occupation:{
-        type: String,
-        required: "please enter your first name"
+    
     },
     childFullName:{
         type: String,
-        required: "please enter your first name"
+    
     },
     age:{
         type: Number,
-        required: "please enter your first name"
-    },   
+    
+    },
+    // gender:{
+    //     type: String,
+      
+    // },  
     comment:{
         type: String,
-        required: "please enter your first name"
+    
     }
    
     //cryptographic hashing
