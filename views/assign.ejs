@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Club Booking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./booking.css">
+</head>
+
+<body>
+    <div class="container mt-5" class="form-horizontal" role="form">
+        <form action="/assignSeater" method="POST">
+            <h3 style="text-align: center; color: #b34700;">Assign Seaters to Kids</h3>
+
+            <div class="form-group">
+                <label for="phoneNumber" class="col-sm-3 control-label">Select Seater</label>
+                <div class="col-sm-12">
+                    <select class="form-control" id="exampleFormControlSelect1" name="seaterName">
+                        <!-- <option selected>Select Seater</option> -->
+                        <% seaters.forEach(function(seater){ %>
+                        <option><%- seater.fullName %></option>
+                        <%});%>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FullName" class="col-sm-3 control-label">Select Kid</label>
+                <div class="col-sm-12">
+                    <select class="form-control" id="exampleFormControlSelect1" name="childId">
+                        <% kids.forEach(function(kid){ %>
+                        <option><%- kid.childFullName %></option>
+                        <%});%>
+                    </select></div>
+            </div>
+            <input type="submit" value="Assign Seater" class="btn btn-primary" style="width: 25%; margin-left: 200px;"
+                onclick="">
+    </div>
+    </form>
+
+    <script src="js/bookingVal.js"></script>
+</body>
+
+</html>
