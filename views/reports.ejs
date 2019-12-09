@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/themify-icons.css" />
+    <link rel="stylesheet" href="css/flag-icon.min.css" />
+    <link rel="stylesheet" href="css/cs-skin-elastic.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+
+    <link href="icons/css/all.css" rel="stylesheet" />
+    <!--load all styles -->
+    <link href="css/lib/vector-map/jqvmap.min.css" rel="stylesheet" />
+    <title>Supervisor's page</title>
+</head>
+
+<body>
+    <div class="example">
+        <div class="">
+            <nav class="navbar" style="background-color: #cc6600;">
+                <a class="navbar-brand" id="header">
+                    <img src="images/babySmile.jpg" width="60" height="50" class="d-inline-block align-top" alt="" />
+                    The Junior Baby Center</a>
+                <form class="form-inline">
+                    <!-- Example single danger button -->
+
+                    <button class="btn btn-secondary loginAs" type="button" id="dropdownMenuButton" aria-haspopup="true"
+                        aria-expanded="false">
+                        Logout
+                    </button>
+
+                    <!-- Example single danger button -->
+                </form>
+            </nav>
+            &nbsp;
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="images/jeromeID.jpg" width="30px" height="60px" alt="image" class="center"
+                            style="border-radius: 50%;" />
+
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            &nbsp;
+
+                            <a class="btn btn-outline-success my-2 my-sm-0 menuList" id="v-pills-messages-tab"
+                                data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                aria-selected="false">My Profile</a>&nbsp;
+
+                            <a class="btn btn-outline-success my-2 my-sm-0 menuList" id="v-pills-home-tab"
+                                data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                aria-selected="true" onclick="registerCustomer()">Register Customer</a>&nbsp;
+
+                            <a class="btn btn-outline-success my-2 my-sm-0 menuList" id="v-pills-home-tab"
+                                data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                                aria-selected="true" onclick="bookClub()">Make appointment</a>&nbsp;
+
+                            <a class="btn btn-outline-success my-2 my-sm-0 menuList" id="v-pills-messages-tab"
+                                data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                aria-selected="false" onclick="createSeater()">Register seater</a>&nbsp;
+
+                            <form action="/reports">
+                                <input class="btn btn-outline-success my-2 my-sm-0 menuList btn-block"
+                                    value="View Reports" type="submit"></input>
+                            </form>
+                            &nbsp;
+
+                            <form action="/assign">
+                                <input class="btn btn-outline-success my-2 my-sm-0 menuList btn-block" type="submit"
+                                    value="Assign Seaters" />
+                            </form>
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="">
+                            <h3 id="txt">
+                                Different Reports
+                            </h3>
+
+                            <div class="content mt-3">
+                                <div class="container-fluid p-3" id="contents">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul id="tabs" class="nav nav-tabs">
+                                            <li class="nav-item"><a href="" data-target="#home1" data-toggle="tab"
+                                                    class="nav-link small text-uppercase active text-dark">Unassigned Appointments</a></li>
+                                            <li class="nav-item"><a href="" data-target="#profile1" data-toggle="tab"
+                                                    class="nav-link small text-uppercase text-dark">Assigned Appointments</a></li>
+                                            <li class="nav-item"><a href="" data-target="#messages1" data-toggle="tab"
+                                                    class="nav-link small text-uppercase text-dark">All Appointments</a></li>
+                                        </ul>
+                                        <br>
+                                        <div id="tabsContent" class="tab-content">
+                                            <div id="home1" class="tab-pane fade">
+                                                <table class="table">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th scope="col">Customer Phone</th>
+                                                            <th scope="col">Child's Full Name</th>
+                                                            <th scope="col">Child's Age</th>
+                                                            <th scope="col">Note/Comment</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% bookingLogsUnassigned.forEach(function(booking){ %>
+                                                        <tr>
+                                                            <td><%- booking.phoneNumber %></td>
+                                                            <td><%- booking.childFullName %></td>
+                                                            <td><%- booking.age %></td>
+                                                            <td><%- booking.comment %></td>
+                                                        </tr>
+                                                        <%});%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div id="profile1" class="tab-pane fade active show">
+                                                <table class="table">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th scope="col">Seater Name</th>
+                                                            <th scope="col">Child's Name</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% assigned.forEach(function(eachAssignee){ %>
+                                                        <tr>
+                                                            <td><%- eachAssignee.seaterName %></td>
+                                                            <td><%- eachAssignee.childName %></td>
+                                                        </tr>
+                                                        <%});%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div id="messages1" class="tab-pane fade">
+                                            
+                                                <table class="table">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th scope="col">Customer Phone</th>
+                                                            <th scope="col">Child's Full Name</th>
+                                                            <th scope="col">Child's Age</th>
+                                                            <th scope="col">Note/Comment</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% bookingLogs.forEach(function(booking){ %>
+                                                        <tr>
+                                                            <td><%- booking.phoneNumber %></td>
+                                                            <td><%- booking.childFullName %></td>
+                                                            <td><%- booking.age %></td>
+                                                            <td><%- booking.comment %></td>
+                                                        </tr>
+                                                        <%});%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                &nbsp; &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 5px;">
+                <footer>
+                    <div class="container-fluid" style="background-color: #4d4d4d; color: #fff; padding-top: 10px;">
+                        <!-- <div class="jumbotron"> -->
+                        <div class="row">
+                            <div class="col-md-2" style="padding-right: 1px;"></div>
+                            <div class="col-md-3" style="color: #fff;">
+                                <ul style="list-style-type:none;">
+                                    <li><strong>Babysits</strong></li>
+                                    <br />
+                                    <li>How we work</li>
+                                    <li>Help</li>
+                                    <li>Privacy</li>
+                                    <li>Terms</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul style="list-style-type:none">
+                                    <li><strong>About Us</strong></li>
+                                    <br />
+                                    <li>Trust and safety</li>
+                                    <li>Community Standards</li>
+                                    <li>Partners</li>
+                                    <li>Success stories</li>
+                                    <br />
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul style="list-style-type:none">
+                                    <li><strong>Contact Us</strong></li>
+                                    <br />
+                                    <li>Tel: +256(0)773245713</li>
+                                    <li>Email: juniorbc@jbc.ug</li>
+                                    <li>
+                                        Plot 244 Lubobo Close, Kampala Muyenga Tank Hill Road.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="card-header" id="footer">
+                                <small>
+                                    &copy; 2019 Junior Baby Center; All rights reserved, jbc,
+                                    Inc.</small>
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </div>
+</body>
+
+</html>

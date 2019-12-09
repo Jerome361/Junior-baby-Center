@@ -1,34 +1,20 @@
-const express = require('express');
-const SeaterLog = require('../models/seaterLogModel');
-
+const express = require("express");
+const SeaterLog = require("../models/seaterLogModel");
+const BookingLogs = require("../models/bookingModel");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('regSeater.html')
+router.post("/", async (req, res) => {
+  const regSeater = new SeaterLog(req.body);
+  regSeater
+    .save()
+    .then(
+      BookingLogs.find().then(items => {
+        res.render("supervisor.ejs", { bookingLogs: items });
+      })
+    )
+    .catch(err => {
+      res.status(500).send("Unable to save to the database");
+    });
 });
 
-
-// submits a login page information
-router.post('/', async (req, res) => {
-
-    const regSeater = new SeaterLog(req.body);
-    regSeater.save()
-        //promises
-        //Querry the collection and pass the to a new form called list
-        .then(
-            SeaterLog.find().then(
-                item => {
-                    res.render('welcomeAdmin.html', { users: item });
-                }
-            )
-
-        )
-        .catch(err => {
-            res.status(500).send('Unable to save to the database')
-        })
-
-})
-
-
-
-module.exports = router 
+module.exports = router;

@@ -32,7 +32,7 @@
                 <div class="col-sm-12">
                     <select class="form-control" id="exampleFormControlSelect1" name="childId">
                         <% kids.forEach(function(kid){ %>
-                        <option><%- kid.childFullName %></option>
+                        <option value="<%= kid._id %>"><%- kid.childFullName %></option>
                         <%});%>
                     </select></div>
             </div>

@@ -79,6 +79,14 @@ app.use("/assign", seaters);
 const postAssignmnet = require("./Routes/postAssignments");
 app.use("/assignSeater", postAssignmnet);
 
+//All Reports Page
+const reportsPage = require("./Routes/reports");
+app.use("/reports", reportsPage);
+
+//Register Seaters
+const addSeaters = require("./Routes/regSeaterRoute");
+app.use("/resgisterSeater", addSeaters);
+
 const postsRoute = require("./Routes/posts");
 app.use("/form", postsRoute);
 
