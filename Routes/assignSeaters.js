@@ -1,10 +1,10 @@
 const express = require("express");
-const RegisterCustomer = require("../models/registerCustomerModel");
+const RegisterSeaters = require("../models/seaterLogModel");
 const BookingLog = require("../models/bookingModel");
 const router = express.Router();
 
 const getAllSeaters = async () => {
-  const response = await RegisterCustomer.find();
+  const response = await RegisterSeaters.find();
   return response;
 };
 
@@ -17,7 +17,6 @@ const getAllAppointments = async () => {
 router.get("/", async (req, res) => {
   const allSeaters = await getAllSeaters();
   const allKids = await getAllAppointments();
-  console.log(allKids);
   res.render("assign.ejs", { seaters: allSeaters, kids: allKids });
 });
 

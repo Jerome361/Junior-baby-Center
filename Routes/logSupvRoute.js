@@ -1,5 +1,6 @@
 const express = require("express");
 const SupervisorLog = require("../models/supervisorLog");
+const BookingLog = require("../models/bookingModel");
 var bcrypt = require("bcryptjs");
 const router = express.Router();
 
@@ -12,9 +13,9 @@ const authenticate = async (userEmail, userPassword) => {
   if (userEmail) {
     const theUser = [];
     await SupervisorLog.findOne({ email: userEmail }, (error, response) => {
-      if(response !== null){
+      if (response !== null) {
         theUser.push(response);
-      }     
+      }
     });
     if (theUser.length) {
       console.log(userPassword, theUser[0].createPassword);
@@ -31,7 +32,9 @@ router.post("/", async (req, res) => {
   try {
     const user = await authenticate(req.body.email, req.body.password);
     if (user) {
-      res.render("supervisor.html");
+      BookingLog.find().then(items => {
+        res.render("supervisor.ejs", { bookingLogs: items });
+      });
     } else {
       res.redirect("loginSupervisor.html");
     }

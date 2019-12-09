@@ -35,8 +35,7 @@ router.post("/", async (req, res) => {
       .save()
       .then(item => {
         BookingLog.find().then(items => {
-          // console.log("Data Saved to Database Successfully");
-          res.render("supervisor.html", { bookingLogs: items });
+          res.render("supervisor.ejs", { bookingLogs: items });
         });
       })
       .catch(err => {

@@ -116,16 +116,10 @@
                   >Register seater</a
                 >&nbsp;
 
-                <a
-                  class="btn btn-outline-success my-2 my-sm-0 menuList"
-                  id="v-pills-settings-tab"
-                  data-toggle="pill"
-                  href="#v-pills-settings"
-                  role="tab"
-                  aria-controls="v-pills-settings"
-                  aria-selected="false"
-                  >View Reports</a
-                >&nbsp;
+                <form action="/reports">
+                  <input class="btn btn-outline-success my-2 my-sm-0 menuList btn-block" value="View Reports" type="submit"></input>
+                </form>
+                  &nbsp;
 
                 <form action="/assign">
                   <input
@@ -140,13 +134,12 @@
             <div class="col-sm-10">
               <div class="">
                 <h3 id="txt">
-                  You are a Supervisor.
-                  <small>JBC; a home away from home.</small>
+                  Today's Babies Appointments
                 </h3>
 
                 <div class="content mt-3">
-                  <div class="container-fluid" id="contents">
-                    <div class="col-sm-12">
+                  <div class="container-fluid p-3" id="contents">
+                    <!-- <div class="col-sm-12">
                       <div
                         class="alert  alert-success alert-dismissible fade show"
                         role="alert"
@@ -164,7 +157,28 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                    </div>
+                    </div> -->
+
+                    <table class="table">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col">Customer Phone</th>
+                          <th scope="col">Child's Full Name</th>
+                          <th scope="col">Child's Age</th>
+                          <th scope="col">Note/Comment</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% bookingLogs.forEach(function(booking){ %>
+                        <tr>
+                          <td><%- booking.phoneNumber %></td>
+                          <td><%- booking.childFullName %></td>
+                          <td><%- booking.age %></td>
+                          <td><%- booking.comment %></td>
+                        </tr>
+                        <%});%>
+                      </tbody>
+                    </table>
                   </div>
 
                   &nbsp; &nbsp;

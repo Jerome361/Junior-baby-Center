@@ -1,5 +1,6 @@
 const express = require("express");
 const AssignmentModel = require("../models/assignments");
+const BookingLog = require("../models/bookingModel");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -7,8 +8,8 @@ router.post("/", async (req, res) => {
   myData
     .save()
     .then(item => {
-      AssignmentModel.find().then(items => {
-        res.render("supervisor.html", { assignments: items });
+      BookingLog.find().then(items => {
+        res.render("supervisor.ejs", { bookingLogs: items });
       });
     })
     .catch(err => {
