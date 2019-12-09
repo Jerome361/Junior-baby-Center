@@ -46,12 +46,24 @@ app.use(
 //Make bookings
 const bookingRoute = require("./Routes/bookingRoute");
 app.use("/booking", bookingRoute);
+
+//Admin login
+const superAdminRoute = require("./Routes/superAdminRoute");
+app.use("/createAdmin", superAdminRoute);
+
+//Admin login
+const adminLoginRoute = require("./Routes/logAdminRoute");
+app.use("/auth", adminLoginRoute);
+
 //Register Supervisor
 const supLogsRoute = require("./Routes/regSupervisor");
 app.use("/regSuperv", supLogsRoute);
 //Supervisor login
 const logSupvRoute = require("./Routes/logSupvRoute");
 app.use("/authSupervisor", logSupvRoute);
+//Register Seater
+const seaterLogsRoute = require("./Routes/regSeaterRoute");
+app.use("/registerSeater", seaterLogsRoute);
 //Register customer
 const regCustomer = require("./Routes/registerCustomerRoute");
 app.use("/registerCustomer", regCustomer);
@@ -70,11 +82,8 @@ app.use("/assignSeater", postAssignmnet);
 const postsRoute = require("./Routes/posts");
 app.use("/form", postsRoute);
 
-const loginRoute = require("./Routes/login");
-app.use("/auth", loginRoute);
 
-const seaterLogsRoute = require("./Routes/regSeaterRoute");
-app.use("/registerSeater", seaterLogsRoute);
+
 
 //Mongoose helps to save data to the database
 mongoose.Promise = global.Promise;

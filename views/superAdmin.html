@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create admin</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="superAdmin.css">
+</head>
+
+<body>
+
+    <body id="LoginForm">
+        <div class="container">
+
+            <div class="login-form">
+                <div class="main-div">
+                    <div class="panel">
+                        <h2><strong>Create Admin</strong> </h2>
+
+                    </div>
+                    <form id="Login" action="/createAdmin" method="POST">
+
+                        <div class="form-group">
+
+
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Email Address">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Create Password">
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Create Admin</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    </body>
+
+</html>
